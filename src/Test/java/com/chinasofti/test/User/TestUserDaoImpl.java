@@ -38,4 +38,11 @@ public class TestUserDaoImpl {
 //        roleDao.delete(3);
 //        System.out.println("context = " + context);
 //    }
+
+
+    @Test
+    public void testFindUserByNameAndPwd(){
+        User user = userDao.findUserByNameAndPwd("lisi", "123");
+        System.out.println("user = " + user);
+    }
 }

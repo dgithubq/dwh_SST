@@ -6,6 +6,7 @@ import com.chinasofti.dao.impl.UserDaoImpl;
 import com.chinasofti.entity.Role;
 import com.chinasofti.entity.User;
 import com.chinasofti.service.UserService;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import java.util.List;
 
@@ -37,6 +38,7 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl() {
     }
 
+    //查看所有的user
     @Override
     public List<User> selectUsers() {
         List<User> users = userDao.selectUsers();
@@ -46,5 +48,16 @@ public class UserServiceImpl implements UserService {
             user.setRoles(roles);
         }
         return users;
+    }
+
+    @Override
+    public User login(String name, String pwd) {
+        User user = null;
+        try {
+            user = userDao.findUserByNameAndPwd(name, pwd);
+        }catch (EmptyResultDataAccessException em){
+            return null;
+        }
+        return user;
     }
 }

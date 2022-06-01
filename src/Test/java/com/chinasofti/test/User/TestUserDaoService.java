@@ -37,4 +37,10 @@ public class TestUserDaoService {
 //        roleService.delete(2);
 //        System.out.println("context = " + context);
 //    }
+
+    @Test
+    public void testLogin(){
+        User user = userService.login("lisi", "123");
+        System.out.println("user = " + user);
+    }
 }

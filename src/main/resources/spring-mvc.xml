@@ -23,7 +23,15 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <!--对 /user/login除外-->
+            <mvc:exclude-mapping path="/user/login"></mvc:exclude-mapping>
+            <bean class="com.chinasofti.interceptor.PrivilegeInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 
 
