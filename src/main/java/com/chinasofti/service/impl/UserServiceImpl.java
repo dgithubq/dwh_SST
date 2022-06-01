@@ -70,4 +70,14 @@ public class UserServiceImpl implements UserService {
     public void addUserByRole(User user,List<Integer> roleIds) {
         userDao.addUserByRole(user,roleIds);
     }
+
+    @Override
+    public void deleteUser(Integer uid) {
+        userDao.deleteUser(uid);
+    }
+
+    @Override
+    public void deleteUserByRole(Integer uid) {
+        userDao.deleteUserByRole(uid);
+    }
 }

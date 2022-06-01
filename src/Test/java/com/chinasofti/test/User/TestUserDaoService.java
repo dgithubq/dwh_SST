@@ -54,4 +54,11 @@ public class TestUserDaoService {
         userService.addUserByRole(user,objects);
         System.out.println("context = " + context);
     }
+
+    @Test
+    public void testUserByRole(){
+        userService.deleteUserByRole(21);
+        userService.deleteUser(21);
+        System.out.println("context = " + context);
+    }
 }

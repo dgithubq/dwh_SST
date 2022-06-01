@@ -13,4 +13,6 @@ public interface UserDao {
     void add(User user);
     //添加到sys_user_role
     void addUserByRole(User user,List<Integer> roleIds);
+    void deleteUser(Integer uid);
+    void deleteUserByRole(Integer uid);
 }

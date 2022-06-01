@@ -60,4 +60,14 @@ public class UserController {
         modelAndView.setViewName("redirect:/user/list");
         return modelAndView;
     }
+
+    //删除用户
+    @RequestMapping("/delete.do")
+    public ModelAndView deleteUser(Integer uid){
+        ModelAndView modelAndView = new ModelAndView();
+        userService.deleteUserByRole(uid);
+        userService.deleteUser(uid);
+        modelAndView.setViewName("redirect:/user/list");
+        return modelAndView;
+    }
 }

@@ -11,4 +11,7 @@ public interface UserService {
 
     void add(User user);//新增用户
     void addUserByRole(User user,List<Integer> roleIds);//新增sys_user_role
+
+    void deleteUser(Integer uid);
+    void deleteUserByRole(Integer uid);
 }

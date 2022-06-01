@@ -45,4 +45,12 @@ public class TestUserDaoImpl {
         userDao.addUserByRole(user,objects);
         System.out.println("context = " + context);
     }
+
+    //删除用户
+    @Test
+    public void testDeleteUser(){
+        userDao.deleteUserByRole(12);
+        userDao.deleteUser(12);
+        System.out.println("context = " + context);
+    }
 }
