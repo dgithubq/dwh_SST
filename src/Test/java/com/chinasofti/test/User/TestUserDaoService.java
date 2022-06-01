@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestUserDaoService {
@@ -42,5 +43,15 @@ public class TestUserDaoService {
     public void testLogin(){
         User user = userService.login("lisi", "123");
         System.out.println("user = " + user);
+    }
+
+    @Test
+    public void testAdd(){
+        User user = new User("dwh", "123", "1323233232@qq.com", "123213444444");
+        List<Integer> objects = new ArrayList<>();
+        objects.add(1);
+        userService.add(user);
+        userService.addUserByRole(user,objects);
+        System.out.println("context = " + context);
     }
 }

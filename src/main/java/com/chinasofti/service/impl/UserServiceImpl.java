@@ -60,4 +60,14 @@ public class UserServiceImpl implements UserService {
         }
         return user;
     }
+
+    @Override
+    public void add(User user) {
+        userDao.add(user);
+    }
+
+    @Override
+    public void addUserByRole(User user,List<Integer> roleIds) {
+        userDao.addUserByRole(user,roleIds);
+    }
 }

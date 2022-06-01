@@ -15,4 +15,5 @@ public interface RoleDao {
     void deleteSur(Integer id);//删除sys_user_role
 
     List<Role> selectUserById(Integer id);
+
 }

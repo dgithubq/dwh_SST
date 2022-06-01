@@ -11,6 +11,13 @@ public class User implements Serializable {
     private String phoneNum;
     private List<Role> roles;
 
+    public User(String userName, String email, String passWord, String phoneNum) {
+        this.userName = userName;
+        this.email = email;
+        this.passWord = passWord;
+        this.phoneNum = phoneNum;
+    }
+
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }

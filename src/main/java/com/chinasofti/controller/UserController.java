@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -40,5 +41,23 @@ public class UserController {
             return "redirect:/index.jsp";
         }
         return "redirect:/login.jsp";
+    }
+
+    //添加用户
+    @RequestMapping("/save.do")
+    public ModelAndView add(User user,String roleId){//页面那边传进来长字符串
+        ModelAndView modelAndView = new ModelAndView();
+        //先添加user
+        userService.add(user);
+        //把长字符串转数组
+        List<Integer> roleIds = new ArrayList<>();
+        String[] split = roleId.split(",");
+        //分别拿到值
+        for (String s : split) {
+            roleIds.add(Integer.parseInt(s));
+        }
+        userService.addUserByRole(user,roleIds);
+        modelAndView.setViewName("redirect:/user/list");
+        return modelAndView;
     }
 }
