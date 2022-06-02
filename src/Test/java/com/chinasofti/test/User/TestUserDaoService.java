@@ -61,4 +61,10 @@ public class TestUserDaoService {
         userService.deleteUser(21);
         System.out.println("context = " + context);
     }
+
+    @Test
+    public void testSelectUserByRole(){
+        List<Role> roles = userService.selectUserByRole();
+        System.out.println("roles = " + roles);
+    }
 }

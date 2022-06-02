@@ -53,4 +53,10 @@ public class TestUserDaoImpl {
         userDao.deleteUser(12);
         System.out.println("context = " + context);
     }
+
+    @Test
+    public void testUserByRole(){
+        List<Role> roles = userDao.selectUserByRole();
+        System.out.println("roles = " + roles);
+    }
 }

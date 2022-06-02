@@ -29,6 +29,11 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public List<Role> selectUserByRole() {
+        return jdbcTemplate.query("select * from sys_role",new BeanPropertyRowMapper<Role>(Role.class));
+    }
+
+    @Override
     public void add(User user) {
         jdbcTemplate.update("insert into sys_user(userName,password,email,phoneNum) values(?,?,?,?)", user.getUserName(), user.getPassWord(), user.getEmail(), user.getPhoneNum());
     }

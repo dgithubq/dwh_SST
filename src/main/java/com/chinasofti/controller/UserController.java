@@ -1,5 +1,6 @@
 package com.chinasofti.controller;
 
+import com.chinasofti.entity.Role;
 import com.chinasofti.entity.User;
 import com.chinasofti.service.UserService;
 import com.mysql.cj.xdevapi.Session;
@@ -58,6 +59,15 @@ public class UserController {
         }
         userService.addUserByRole(user,roleIds);
         modelAndView.setViewName("redirect:/user/list");
+        return modelAndView;
+    }
+
+    @RequestMapping("/save")
+    public ModelAndView selectUserByRole(){
+        ModelAndView modelAndView = new ModelAndView();
+        List<Role> roles = userService.selectUserByRole();
+        modelAndView.addObject("roles",roles);
+        modelAndView.setViewName("user-add");
         return modelAndView;
     }
 
